@@ -1,0 +1,11 @@
+# AI API Suite - SEO Robots Configuration
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl delay to respect server resources
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://aiapi.example.com/sitemap.xml

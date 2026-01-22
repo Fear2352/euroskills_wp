@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+p {
+  color: var(--color-gray);
+}
+
+a {
+  color: var(--color-primary-purple);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-pink);
+  text-decoration: underline;
+}
+
+a:focus {
+  color: var(--color-primary-pink);
+  outline: 2px solid var(--color-primary-purple);
+  outline-offset: 2px;
+  text-decoration: underline;
+  border-radius: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary-purple);
+  outline-offset: 2px;
+}
+
+/* ========== WCAG ACCESSIBILITY ========== */
+
+/* Focus visible for interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary-purple);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary-purple);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* Better focus states for buttons */
+.full-cta,
+.empty-cta {
+  transition: all 0.2s ease;
+}
+
+.full-cta:focus,
+.empty-cta:focus {
+  outline: 2px solid var(--color-primary-purple);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  a {
+    text-decoration: underline;
+  }
+  
+  a:focus {
+    outline-width: 3px;
+  }
+  
+  button:focus-visible,
+  .full-cta:focus,
+  .empty-cta:focus {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 360px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
